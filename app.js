@@ -1,3 +1,21 @@
+const ELEMENTS = {
+    $alarmForm: $('#alarm-form')
+};
+
+main();
+
+function main() {
+    ELEMENTS.$alarmForm.on('submit', onSubmitAlarm);
+}
+
+function onSubmitAlarm(e) {
+    e.preventDefault();
+    const form = e.target;
+    const time = form.time.value;
+    const alarmTime = new Date(`2000-1-1 ${time}`);
+    setAlarm(alarmTime);
+}
+
 function setAlarm(alarmTime) {
     const now = new Date();
     // reset the date parts so we can compare times
