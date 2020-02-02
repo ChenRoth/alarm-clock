@@ -1,5 +1,6 @@
 const ELEMENTS = {
-    $alarmForm: $('#alarm-form')
+    $alarmForm: $('#alarm-form'),
+    $videoContainer: $('#video-container'),
 };
 
 main();
@@ -31,9 +32,7 @@ function setAlarm(alarmTime) {
     // the remaining time for the alarm is the difference in milliseconds between the dates
     const timeForAlarmInMs = alarmTime - now;
 
-    setTimeout(() => {
-        console.log('GOOD MORNING!');
-    }, timeForAlarmInMs);
+    setTimeout(onAlarmTriggered, timeForAlarmInMs);
 }
 
 /*
@@ -44,4 +43,15 @@ function resetDatePart(date) {
     date.setDate(1);
     date.setMonth(0);
     date.setFullYear(2000);
+}
+
+function onAlarmTriggered() {
+    showVideo();
+}
+
+function showVideo() {
+    const $iframe = $(`
+    <iframe width="640" height="480" src="https://www.youtube.com/embed/gtu6ueiFmQQ?&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    `);
+    ELEMENTS.$videoContainer.append($iframe);
 }
