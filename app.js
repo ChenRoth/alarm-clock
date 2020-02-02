@@ -1,4 +1,5 @@
 const ELEMENTS = {
+    $body: $('body'),
     $alarmForm: $('#alarm-form'),
     $videoContainer: $('#video-container'),
 };
@@ -47,6 +48,7 @@ function resetDatePart(date) {
 
 function onAlarmTriggered() {
     showVideo();
+    turnOnLightShow();
 }
 
 function showVideo() {
@@ -54,4 +56,11 @@ function showVideo() {
     <iframe width="640" height="480" src="https://www.youtube.com/embed/gtu6ueiFmQQ?&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     `);
     ELEMENTS.$videoContainer.append($iframe);
+}
+
+function turnOnLightShow() {
+    // toggle the background color every 2 seconds
+    setInterval(() => {
+        ELEMENTS.$body.toggleClass('disco');
+    }, 2e3);
 }
