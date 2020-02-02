@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="app.css" />
+    <link href="//db.onlinewebfonts.com/c/9f88c5b190469adccc60736a8612899c?family=LED+Digital+7" rel="stylesheet"
+        type="text/css" />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
@@ -16,12 +18,26 @@
 </head>
 
 <body>
-    <div class="container">
-        <form id="alarm-form">
-            <input name="time" type="time" format />
-            <button type="submit">SET ALARM</button>
-        </form>
-        <div id="video-container"></div>
+    <div class="container app">
+        <div class="row">
+            <div class="col">
+                <form id="alarm-form">
+                    <h1>MY PERSONAL NUDNIK</h1>
+                    <div class="form-group">
+                        <label>
+                            SET TIME
+                        </label>
+                        <input class="form-control clock form-control-lg" name="time" type="time" format />
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-outline-success" type="submit">SET ALARM</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div id="video-container" class="col"></div>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
