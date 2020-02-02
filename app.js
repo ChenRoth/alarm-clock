@@ -1,6 +1,7 @@
 const ELEMENTS = {
     $body: $('body'),
     $alarmForm: $('#alarm-form'),
+    $setAlarmBtn: $('#alarm-form button[type=submit]'),
     $videoContainer: $('#video-container'),
     $countdown: $('#countdown'),
 };
@@ -35,6 +36,7 @@ function setAlarm(alarmTime) {
     const timeForAlarmInMs = alarmTime - now;
     startCountdown(timeForAlarmInMs);
     setTimeout(onAlarmTriggered, timeForAlarmInMs);
+    ELEMENTS.$setAlarmBtn.attr('disabled', true);
 }
 
 /*
