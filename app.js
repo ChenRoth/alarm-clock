@@ -2,6 +2,7 @@ const ELEMENTS = {
     $body: $('body'),
     $alarmForm: $('#alarm-form'),
     $videoContainer: $('#video-container'),
+    $countdown: $('#countdown'),
 };
 
 main();
@@ -32,7 +33,7 @@ function setAlarm(alarmTime) {
 
     // the remaining time for the alarm is the difference in milliseconds between the dates
     const timeForAlarmInMs = alarmTime - now;
-
+    startCountdown(timeForAlarmInMs);
     setTimeout(onAlarmTriggered, timeForAlarmInMs);
 }
 
@@ -63,4 +64,17 @@ function turnOnLightShow() {
     setInterval(() => {
         ELEMENTS.$body.toggleClass('disco');
     }, 2e3);
+}
+
+function startCountdown(totalTimeInMs) {
+    let remainingTimeInMs = totalTimeInMs;
+    setInterval(() => {
+        remainingTimeInMs -= 1e3;
+        updateCountdownText();
+    }, 1e3);
+    updateCountdownText();
+
+    function updateCountdownText() {
+        ELEMENTS.$countdown.html(`The Alarm will set off in ${Math.round(remainingTimeInMs / 1e3)} seconds`);
+    }
 }

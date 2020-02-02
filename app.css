@@ -12,6 +12,10 @@ body {
     margin: 0 auto;
 }
 
+#countdown {
+    text-align: center;
+}
+
 #video-container {
     text-align: center;
 }
